@@ -27,31 +27,26 @@ public class sentenceChecker {
             if (s.charAt(i) == '"')                        //Increase count when quotation is discovered
                 quote++;
         }
-        if ((quote % 2) == 1){                                //Divide total by 2 to check if even or not
-            return false;
-        }
-        else{
-            return true;
-        }
+        return (quote % 2) != 1;
     }
 
     private boolean endsWithPeriod(){                          //Check if the string ends with a period.
         return s.endsWith(".");
     }
 
-    private boolean containsNoOther(){
+
+
+    private boolean containsNoOther(){                          //check period count for length-1
         int period = 0;
 
-        for (int i = 0; i < (s.length()); i++) {               //Iterate through the string
-            if (s.charAt(i) == '.' ) {                         //Increase count when period is discovered
-                period+= 1;                                    //Break loop as condition has been met
-                System.out.println(period);
-            }
+        for (int i = 0; i < (s.length()-1); i++) {               //Iterate through the string
+            if (s.charAt(i) == '.' )                          //Increase count when period is discovered
+                period++;                                    //Break loop as condition has been met
         }
-        if (period - 1 ==  0);{                                 //Check count and return
-            return true;
-        }
+        return (period == 0);
     }
+
+
 
     private boolean numberCheck(){
         return s.matches(".*(?: [0-9] | 1[0-2] ).*");                 //Using regex pattern to find numbers 1-12 in string
