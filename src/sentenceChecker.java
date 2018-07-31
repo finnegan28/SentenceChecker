@@ -92,6 +92,8 @@ public class sentenceChecker {
         sentenceChecker string7 = new sentenceChecker("\"The quick brown fox said \"hello Mr lazy dog.\"");
         sentenceChecker string8 = new sentenceChecker("One lazy dog is too few, 12 is too many.");
 
+        sentenceChecker string9 = new sentenceChecker("");
+
         int pass = 0;
         int fail = 0;
 
@@ -143,10 +145,16 @@ public class sentenceChecker {
         else{
             fail++;
         }
+        if (string9.sentenceTest() == true){
+            pass++;
+        }
+        else{
+            fail++;
+        }
 
         System.out.println("----Test Results----");
         System.out.println("Total Tests " + (fail + pass));
-        System.out.println("Expected results - 4 pass / 4 fails");
+        System.out.println("Expected results - 4 pass / 5 fails");
         System.out.println("Passed tests - " + pass);
         System.out.println("Failed tests - " + fail);
 
