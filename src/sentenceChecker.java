@@ -13,7 +13,7 @@ public class sentenceChecker {
     }
 
     private boolean isNotEmpty() {
-        return s.isEmpty();                              //Check if the string is empty
+        return s.isEmpty();                                  //Check if the string is empty
     }
 
     private boolean isFirstLetterCapital(){
@@ -21,32 +21,28 @@ public class sentenceChecker {
     }
 
     private boolean hasEvenQuotes(){
-        int quote = 0;                                      //Counter for quotes
+        int quote = 0;                                       //Counter for quotes
 
-        for (int i =0; i < s.length(); i++){                //Iterate through the string
-            if (s.charAt(i) == '"')                        //Increase count when quotation is discovered
+        for (int i =0; i < s.length(); i++){                 //Iterate through the string
+            if (s.charAt(i) == '"')                          //Increase count when quotation is discovered
                 quote++;
         }
         return (quote % 2) != 1;
     }
 
-    private boolean endsWithPeriod(){                          //Check if the string ends with a period.
+    private boolean endsWithPeriod(){                         //Check if the string ends with a period.
         return s.endsWith(".");
     }
 
-
-
-    private boolean containsNoOther(){                          //check period count for length-1
+    private boolean containsNoOther(){                        //check period count for length-1
         int period = 0;
 
-        for (int i = 0; i < (s.length()-1); i++) {               //Iterate through the string
+        for (int i = 0; i < (s.length()-1); i++) {            //Iterate through the string
             if (s.charAt(i) == '.' )                          //Increase count when period is discovered
-                period++;                                    //Break loop as condition has been met
+                period++;
         }
         return (period == 0);
     }
-
-
 
     private boolean numberCheck(){
         return s.matches(".*(?: [0-9] | 1[0-2] ).*");                 //Using regex pattern to find numbers 1-12 in string
@@ -60,44 +56,25 @@ public class sentenceChecker {
             System.out.println("Fail 1- Empty string");
             return false;
         }
-        else{
-            System.out.println("Pass 1- Not empty");
-        }
-
         if (this.isFirstLetterCapital() == false) {
             System.out.println("Fail 2- not a capital letter");
             return false;
-        }
-        else{
-            System.out.println("Pass 2- First is capital");
         }
         if (this.hasEvenQuotes() == false){
             System.out.println("Fail 3- Odd quote count");
             return false;
         }
-        else{
-            System.out.println("Pass 3- Even quotes");
-        }
         if (this.endsWithPeriod() == false){
             System.out.println("Fail 4- does not end with period");
             return false;
-        }
-        else{
-            System.out.println("Pass 4- Ends with period");
         }
         if (this.containsNoOther() == false){
             System.out.println("Fail 5- Contains other period");
             return false;
         }
-        else{
-            System.out.println("Pass 5- No other period");
-        }
         if (this.numberCheck() == true){
             System.out.println("Fail 6- Digits below 13");
             return false;
-        }
-        else{
-            System.out.println("Pass 6- No numbers pass");
         }
         System.out.println("Sentence follows all of our rules");
         return true;
@@ -116,34 +93,62 @@ public class sentenceChecker {
         sentenceChecker string8 = new sentenceChecker("One lazy dog is too few, 12 is too many.");
 
         int pass = 0;
+        int fail = 0;
 
         if (string1.sentenceTest() == true){
             pass++;
         }
+        else{
+            fail++;
+        }
         if (string2.sentenceTest() == true){
             pass++;
+        }
+        else{
+            fail++;
         }
         if (string3.sentenceTest() == true){
             pass++;
         }
+        else{
+            fail++;
+        }
         if (string4.sentenceTest() == true){
             pass++;
+        }
+        else{
+            fail++;
         }
         if (string5.sentenceTest() == true){
             pass++;
         }
+        else{
+            fail++;
+        }
         if (string6.sentenceTest() == true){
             pass++;
+        }
+        else{
+            fail++;
         }
         if (string7.sentenceTest() == true){
             pass++;
         }
+        else{
+            fail++;
+        }
         if (string8.sentenceTest() == true){
             pass++;
         }
+        else{
+            fail++;
+        }
+
         System.out.println("----Test Results----");
-        System.out.println("Total Tests 8");
+        System.out.println("Total Tests " + (fail + pass));
+        System.out.println("Expected results - 4 pass / 4 fails");
         System.out.println("Passed tests - " + pass);
+        System.out.println("Failed tests - " + fail);
 
     }
 }
