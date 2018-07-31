@@ -17,7 +17,7 @@ public class sentenceChecker {
     }
 
     private boolean isFirstLetterCapital(){
-        return s.matches("(^[A-Z].*)");
+        return s.matches("(^[A-Z].*)");                //regex check for A-Z capital letter
     }
 
     private boolean hasEvenQuotes(){
@@ -32,7 +32,7 @@ public class sentenceChecker {
 
     private boolean endsWithPeriod(){                         //Check if the string ends with a period.
         return s.endsWith(".");
-    }
+    }  //check if ends with period
 
     private boolean containsNoOther(){                        //check period count for length-1
         int period = 0;
