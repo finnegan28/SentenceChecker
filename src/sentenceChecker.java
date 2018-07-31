@@ -17,7 +17,7 @@ public class sentenceChecker {
     }
 
     private boolean isFirstLetterCapital(){
-        return s.matches("(^[A-Z].*)");                //regex check for A-Z capital letter
+        return s.matches("(^[A-Z].*)");                     //regex check for A-Z capital letter
     }
 
     private boolean hasEvenQuotes(){
@@ -45,7 +45,7 @@ public class sentenceChecker {
     }
 
     private boolean numberCheck(){
-        return s.matches(".*(?: [0-9] | 1[0-2] ).*");                 //Using regex pattern to find numbers 1-12 in string
+        return s.matches(".*(?: [0-9] | 1[0-2] ).*");         //Using regex pattern to find numbers 1-12 in string
     }
 
     public boolean sentenceTest(){
